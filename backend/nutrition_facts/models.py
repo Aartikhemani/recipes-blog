@@ -13,3 +13,9 @@ class NutritionFacts(models.Model):
     potassium_mg = models.FloatField()
     sodium_mg = models.FloatField()
     fiber_g = models.FloatField()
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return f'NutritionFacts(pk={repr(self.pk)}, name={repr(self.name)})'
