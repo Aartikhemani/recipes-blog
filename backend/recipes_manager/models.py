@@ -26,7 +26,7 @@ class IngredientRecipe(models.Model):
         liter = 'l'
 
     quantity = models.FloatField()
-    measuring_unit = models.CharField(max_length=256, choices=MeasuringUnit)
+    measuring_unit = models.CharField(max_length=256, choices=MeasuringUnit.choices, default=MeasuringUnit.gram)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient = models.OneToOneField('Ingredient', on_delete=models.CASCADE)
 
