@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "recipes_manager",
 ]
 
 MIDDLEWARE = [
@@ -101,7 +102,6 @@ DATABASES_ALL = {
 }
 
 DATABASES = {"default": DATABASES_ALL[os.environ.get("DJANGO_DB", DB_SQLITE)]}
-
 
 
 # Password validation
