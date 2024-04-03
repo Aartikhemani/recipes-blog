@@ -8,3 +8,4 @@ celery[redis]
 
 psycopg2-binary
 Pillow
+sentry-sdk[django]
