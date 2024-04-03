@@ -8,11 +8,11 @@ class Ingredient(models.Model):
     protein_g = models.FloatField()
     suger_g = models.FloatField()
     fat_total_g = models.FloatField()
-    carbohydrates_total_g = models.FloatField()
+    carbohydrates_total_g = models.FloatField(null=True, blank=True)
     cholesterol_mg = models.FloatField()
-    potassium_mg = models.FloatField()
-    sodium_mg = models.FloatField()
-    fiber_g = models.FloatField()
+    potassium_mg = models.FloatField(null=True, blank=True)
+    sodium_mg = models.FloatField(null=True, blank=True)
+    fiber_g = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.title

@@ -5,7 +5,6 @@ from nutrition_facts.models import Ingredient
 from .serializers import (
     RecipeSerializer,
     CategorySerializer,
-    IngredientSerializer,
     IngredientRecipeSerializer,
 )
 
@@ -18,11 +17,6 @@ class RecipeViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-
-
-class IngredientViewSet(viewsets.ModelViewSet):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
 
 
 class IngredientRecipeViewSet(viewsets.ModelViewSet):
