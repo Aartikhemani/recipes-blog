@@ -49,7 +49,7 @@ class IngredientRecipe(models.Model):
         milliliter = "ml"
         liter = "l"
 
-    title = models.CharField(max_length=256)
+    title = models.CharField(max_length=256, default='Ingredient')
     quantity = models.FloatField()
     measuring_unit = models.CharField(
         max_length=256, choices=MeasuringUnit.choices, default=MeasuringUnit.gram

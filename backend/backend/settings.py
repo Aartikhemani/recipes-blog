@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+import sentry_sdk
 from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -146,3 +147,12 @@ CELERY_RESULT_BACKEND = os.environ.get("RESULT_BACKEND", "redis://localhost:6379
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+
+# Sentry settings
+
+sentry_sdk.init(
+    dsn="https://056300ddaf14bcfc087d3f4929c0d307@o4506400042844160.ingest.us.sentry.io/4507021956939776",
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
+)
