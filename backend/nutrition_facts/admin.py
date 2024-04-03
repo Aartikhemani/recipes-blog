@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import NutritionFacts
+from .models import Ingredient
 
 
-@admin.register(NutritionFacts)
+@admin.register(Ingredient)
 class NutritionFactsAdmin(admin.ModelAdmin):
     pass

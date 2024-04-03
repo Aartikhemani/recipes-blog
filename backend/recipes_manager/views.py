@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 
-from .models import Recipe, Category, Ingredient, IngredientRecipe
+from .models import Recipe, Category, IngredientRecipe
+from nutrition_facts.models import Ingredient
 from .serializers import (
     RecipeSerializer,
     CategorySerializer,

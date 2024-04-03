@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from nutrition_facts.models import NutritionFacts
+from nutrition_facts.models import Ingredient
 
 
 def user_directory_path(instance, filename):
@@ -28,7 +28,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=256)
     image = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     description = models.TextField()
-    ingredients = models.ManyToManyField("Ingredient", through="IngredientRecipe")
+    ingredients = models.ManyToManyField(Ingredient, through="IngredientRecipe")
     published_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -55,7 +55,7 @@ class IngredientRecipe(models.Model):
         max_length=256, choices=MeasuringUnit.choices, default=MeasuringUnit.gram
     )
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    ingredient = models.OneToOneField("Ingredient", on_delete=models.CASCADE)
+    ingredient = models.OneToOneField(Ingredient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -64,15 +64,3 @@ class IngredientRecipe(models.Model):
         return f"IngredientRecipe(pk={repr(self.pk)}, title={repr(self.title)}, quantity={repr(self.quantity)})"
 
 
-class Ingredient(models.Model):
-    title = models.CharField(max_length=256)
-    nutrition_facts = models.OneToOneField(NutritionFacts, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.title
-
-    def __repr__(self):
-        return f"Ingredient(pk={repr(self.pk)}, title={repr(self.title)})"
-
-    class Meta:
-        ordering = ("title",)
