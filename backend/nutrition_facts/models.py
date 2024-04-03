@@ -18,4 +18,4 @@ class NutritionFacts(models.Model):
         return self.name
 
     def __repr__(self):
-        return f'NutritionFacts(pk={repr(self.pk)}, name={repr(self.name)})'
+        return f"NutritionFacts(pk={repr(self.pk)}, name={repr(self.name)})"
