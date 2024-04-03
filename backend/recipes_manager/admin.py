@@ -8,11 +8,6 @@ class RecipeAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Ingredient)
-class IngredientAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(IngredientRecipe)
 class IngredientRecipeAdmin(admin.ModelAdmin):
     pass

@@ -1,8 +1,8 @@
 from django.db import models
 
 
-class NutritionFacts(models.Model):
-    name = models.CharField(max_length=256)
+class Ingredient(models.Model):
+    title = models.CharField(max_length=256)
     serving_size_g = models.FloatField()
     calories = models.FloatField()
     protein_g = models.FloatField()
@@ -15,7 +15,10 @@ class NutritionFacts(models.Model):
     fiber_g = models.FloatField()
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def __repr__(self):
-        return f"NutritionFacts(pk={repr(self.pk)}, name={repr(self.name)})"
+        return f"Ingredient(pk={repr(self.pk)}, title={repr(self.title)})"
+
+    class Meta:
+        ordering = ("title",)
