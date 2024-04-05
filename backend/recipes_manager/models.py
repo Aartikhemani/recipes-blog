@@ -3,6 +3,8 @@ from django.db import models
 
 from nutrition_facts.models import Ingredient
 
+from custom_user.models import CustomUser
+
 
 def user_directory_path(instance, filename):
     return f"user_{instance.email}/{filename}"
@@ -22,7 +24,7 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     cooking_time = models.IntegerField(default=0)
     title = models.CharField(max_length=256)

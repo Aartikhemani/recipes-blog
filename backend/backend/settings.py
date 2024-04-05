@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "recipes_manager",
     "nutrition_facts",
+    "custom_user",
 ]
 
 MIDDLEWARE = [
@@ -156,3 +157,8 @@ sentry_sdk.init(
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
 )
+
+#other setting
+# settings.py
+
+AUTH_USER_MODEL = 'custom_user.CustomUser'
